@@ -7,45 +7,57 @@
     tools:context="find4sport.com.find4sport.LoginActivity"
     tools:layout_editor_absoluteY="25dp">
 
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/tv_registro_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/ivLogoLogin"
         android:layout_width="0dp"
-        android:layout_height="221dp"
+        android:layout_height="171dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@color/colorBackground"
+        android:contentDescription="@string/cdLoginLogo"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo"
-        android:contentDescription="@string/cdLoginLogo"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/tvSignUp"
+        app:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/etUsuarioLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/etUsuarioLogin"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivLogoLogin" />
 
     <EditText
         android:id="@+id/etPasswordLogin"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/etPasswordLogin"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUsuarioLogin" />
@@ -54,33 +66,33 @@
         android:id="@+id/btnEntrarLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
         android:text="@string/btnLoginEntrar"
+        app:layout_constraintBottom_toTopOf="@+id/btnFacebookLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnFacebookLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
         android:text="@string/btnLoginFacebook"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoogleLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrarLogin" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnGoogleLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/btnLoginGoogle"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnFacebookLogin"
-        app:layout_constraintStart_toStartOf="@+id/btnFacebookLogin"
-        app:layout_constraintTop_toBottomOf="@+id/btnFacebookLogin" />
+        app:layout_constraintStart_toStartOf="@+id/btnFacebookLogin" />
 </android.support.constraint.ConstraintLayout>

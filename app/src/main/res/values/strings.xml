@@ -7,4 +7,5 @@
     <string name="cdLoginLogo">Logo App</string>
     <string name="etPasswordLogin">Contraseña</string>
     <string name="etUsuarioLogin">Usuario</string>
+    <string name="tv_registro_login">¿No estás registrado? ¡Pulsa aquí!</string>
 </resources>
