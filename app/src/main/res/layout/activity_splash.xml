@@ -9,20 +9,19 @@
     >
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivLogoSplash"
         android:layout_width="320dp"
         android:layout_height="320dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/img_splash_description"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo"
-        android:contentDescription="@string/img_splash_description"
-        />
+        app:srcCompat="@drawable/logo" />
 
 </android.support.constraint.ConstraintLayout>

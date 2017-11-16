@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Find4Sport</string>
     <string name="img_splash_description">Logo</string>
+    <string name="btnLoginEntrar">Entrar</string>
+    <string name="btnLoginFacebook">Iniciar Sesion con Facebook</string>
+    <string name="btnLoginGoogle">Iniciar Sesion con Google</string>
+    <string name="cdLoginLogo">Logo App</string>
+    <string name="etPasswordLogin">Contraseña</string>
+    <string name="etUsuarioLogin">Usuario</string>
 </resources>
