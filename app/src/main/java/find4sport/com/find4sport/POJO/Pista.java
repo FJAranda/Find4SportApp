@@ -1,6 +1,5 @@
 package find4sport.com.find4sport.POJO;
 
-import java.sql.Time;
 import java.util.List;
 
 /**

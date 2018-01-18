@@ -2,7 +2,6 @@ package find4sport.com.find4sport.POJO;
 
 import android.media.Image;
 
-import java.lang.reflect.Array;
 import java.util.Date;
 import java.util.List;
 
