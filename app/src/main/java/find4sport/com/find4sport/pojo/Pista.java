@@ -1,4 +1,4 @@
-package find4sport.com.find4sport.POJO;
+package find4sport.com.find4sport.pojo;
 
 import java.util.List;
 

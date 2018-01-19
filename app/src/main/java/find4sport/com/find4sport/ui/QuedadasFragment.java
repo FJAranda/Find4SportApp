@@ -4,11 +4,19 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+import find4sport.com.find4sport.pojo.Quedada;
 import find4sport.com.find4sport.R;
+import find4sport.com.find4sport.adapter.QuedadasAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +37,9 @@ public class QuedadasFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private RecyclerView rvQuedadas;
+    private ArrayList<Quedada> quedadas;
+    private QuedadasAdapter adapter;
 
     public QuedadasFragment() {
         // Required empty public constructor
@@ -65,7 +76,34 @@ public class QuedadasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quedadas, container, false);
+        View view = inflater.inflate(R.layout.fragment_quedadas, container, false);
+
+        rvQuedadas = (RecyclerView)view.findViewById(R.id.rvQuedadas);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rvQuedadas.setLayoutManager(linearLayoutManager);
+
+        inicializarDatos();
+        inicializarAdapter();
+
+        return view;
+    }
+
+    private void inicializarAdapter() {
+        adapter = new QuedadasAdapter(quedadas, getActivity());
+        rvQuedadas.setAdapter(adapter);
+    }
+
+    private void inicializarDatos() {
+        Calendar calendar = Calendar.getInstance();
+        Date fecha =calendar.getTime();
+        quedadas = new ArrayList<>();
+        quedadas.add(new Quedada("0", "0", fecha, "Quedada 1", "10:00", "11:00"));
+        quedadas.add(new Quedada("1", "0", fecha, "Quedada 2", "10:00", "11:00"));
+        quedadas.add(new Quedada("2", "0", fecha, "Quedada 3", "10:00", "11:00"));
+        quedadas.add(new Quedada("3", "0", fecha, "Quedada 4", "10:00", "11:00"));
+        quedadas.add(new Quedada("4", "0", fecha, "Quedada 5", "10:00", "11:00"));
+        quedadas.add(new Quedada("5", "0", fecha, "Quedada 6", "10:00", "11:00"));
     }
 
     // TODO: Rename method, update argument and hook method into UI event

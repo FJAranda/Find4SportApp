@@ -2,11 +2,14 @@ package find4sport.com.find4sport;
 
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 import find4sport.com.find4sport.adapter.PlaningPagerAdapter;
 import find4sport.com.find4sport.ui.QuedadasFragment;
@@ -18,7 +21,7 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
     private TabLayout tlPlaning;
     private ViewPager vpPlaning;
     private PlaningPagerAdapter adapter;
-    private final String[] tabsTitulos = {"Quedadas", "Timeline"};
+    private int selectedTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +29,15 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
         setContentView(R.layout.activity_planing);
 
         tbPlaning = (Toolbar)findViewById(R.id.tbPlaning);
-        setSupportActionBar(tbPlaning);
+        if (tbPlaning != null) {
+            setSupportActionBar(tbPlaning);
+        }
 
         tlPlaning = (TabLayout)findViewById(R.id.tlPlaning);
-        tlPlaning.addTab(tlPlaning.newTab().setText(tabsTitulos[0]));
-        tlPlaning.addTab(tlPlaning.newTab().setText(tabsTitulos[1]));
         tlPlaning.setTabGravity(TabLayout.GRAVITY_FILL);
 
         vpPlaning = (ViewPager)findViewById(R.id.vpPlaning);
-        adapter = new PlaningPagerAdapter(getSupportFragmentManager(), tlPlaning.getTabCount());
-        vpPlaning.setAdapter(adapter);
+        setUpViewPager();
 
         vpPlaning.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -53,14 +55,38 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
 
             }
         });
+    }
 
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new QuedadasFragment());
+        fragments.add(new TimelineFragment());
 
+        return fragments;
+    }
 
+    private void setUpViewPager(){
+        vpPlaning.setAdapter(new PlaningPagerAdapter(getSupportFragmentManager(), agregarFragments()));
+        tlPlaning.setupWithViewPager(vpPlaning);
+    }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d("Current Item", String.valueOf(vpPlaning.getCurrentItem()));
+        outState.putInt("SelectedTab", tlPlaning.getSelectedTabPosition());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        tlPlaning.getTabAt(savedInstanceState.getInt("SelectedTab")).select();
     }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-        
+
     }
+
+
 }
