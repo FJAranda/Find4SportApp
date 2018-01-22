@@ -15,11 +15,11 @@ import find4sport.com.find4sport.ui.TimelineFragment;
  */
 
 public class PlaningPagerAdapter extends FragmentPagerAdapter {
-    private ArrayList<Fragment> fragments;
+    private ArrayList<Fragment> fragments = new ArrayList<>();
+    private ArrayList<String> titles = new ArrayList<>();
 
-    public PlaningPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments) {
+    public PlaningPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.fragments = fragments;
     }
 
     @Override
@@ -30,5 +30,15 @@ public class PlaningPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return fragments.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titles.get(position);
+    }
+
+    public void addFragment(Fragment fragment, String title){
+        fragments.add(fragment);
+        titles.add(title);
     }
 }

@@ -26,15 +26,6 @@
         app:layout_scrollFlags="scroll|enterAlways"
         />
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tlPlaning"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbPlaning">
-    </android.support.design.widget.TabLayout>
-
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
@@ -45,5 +36,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tlPlaning"></android.support.v4.view.ViewPager>
+        app:layout_constraintTop_toBottomOf="@+id/tlPlaning">
+
+        <android.support.v4.view.PagerTitleStrip
+            android:id="@+id/ptsPlaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLight"
+            android:textColor="@android:color/white"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+        </android.support.v4.view.PagerTitleStrip>
+
+    </android.support.v4.view.ViewPager>
 </android.support.design.widget.CoordinatorLayout>

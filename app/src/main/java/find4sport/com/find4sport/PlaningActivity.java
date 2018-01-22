@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,6 @@ import find4sport.com.find4sport.ui.TimelineFragment;
 public class PlaningActivity extends AppCompatActivity implements QuedadasFragment.OnFragmentInteractionListener, TimelineFragment.OnFragmentInteractionListener {
 
     private Toolbar tbPlaning;
-    private TabLayout tlPlaning;
     private ViewPager vpPlaning;
     private PlaningPagerAdapter adapter;
     private int selectedTab;
@@ -33,11 +33,10 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
             setSupportActionBar(tbPlaning);
         }
 
-        tlPlaning = (TabLayout)findViewById(R.id.tlPlaning);
-        tlPlaning.setTabGravity(TabLayout.GRAVITY_FILL);
-
         vpPlaning = (ViewPager)findViewById(R.id.vpPlaning);
         setUpViewPager();
+
+
 
         vpPlaning.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -57,30 +56,24 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
         });
     }
 
-    private ArrayList<Fragment> agregarFragments(){
-        ArrayList<Fragment> fragments = new ArrayList<>();
-        fragments.add(new QuedadasFragment());
-        fragments.add(new TimelineFragment());
-
-        return fragments;
-    }
-
     private void setUpViewPager(){
-        vpPlaning.setAdapter(new PlaningPagerAdapter(getSupportFragmentManager(), agregarFragments()));
-        tlPlaning.setupWithViewPager(vpPlaning);
+        adapter = new PlaningPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new QuedadasFragment(), "Quedadas");
+        adapter.addFragment(new TimelineFragment(), "Entorno");
+        vpPlaning.setAdapter(adapter);
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.d("Current Item", String.valueOf(vpPlaning.getCurrentItem()));
-        outState.putInt("SelectedTab", tlPlaning.getSelectedTabPosition());
+        outState.putInt("SelectedTab", vpPlaning.getCurrentItem());
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        tlPlaning.getTabAt(savedInstanceState.getInt("SelectedTab")).select();
+        vpPlaning.setCurrentItem(savedInstanceState.getInt("SelectedTab"));
     }
 
     @Override

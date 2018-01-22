@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import find4sport.com.find4sport.pojo.Quedada;
+import find4sport.com.find4sport.POJO.Quedada;
 
 /**
  * Created by el_ja on 19/01/2018.

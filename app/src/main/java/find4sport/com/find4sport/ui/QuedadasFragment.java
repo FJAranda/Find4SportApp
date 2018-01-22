@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import find4sport.com.find4sport.pojo.Quedada;
+import find4sport.com.find4sport.POJO.Quedada;
 import find4sport.com.find4sport.R;
 import find4sport.com.find4sport.adapter.QuedadasAdapter;
 

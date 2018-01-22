@@ -1,4 +1,4 @@
-package find4sport.com.find4sport.pojo;
+package find4sport.com.find4sport.POJO;
 
 import android.media.Image;
 
