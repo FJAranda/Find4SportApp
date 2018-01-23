@@ -6,10 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
-import find4sport.com.find4sport.R;
-import find4sport.com.find4sport.ui.QuedadasFragment;
-import find4sport.com.find4sport.ui.TimelineFragment;
-
 /**
  * Created by el_ja on 18/01/2018.
  */

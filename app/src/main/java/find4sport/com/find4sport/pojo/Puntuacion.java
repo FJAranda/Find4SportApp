@@ -1,4 +1,4 @@
-package find4sport.com.find4sport.POJO;
+package find4sport.com.find4sport.pojo;
 
 import java.util.Date;
 
@@ -6,12 +6,22 @@ import java.util.Date;
  * Created by Javi on 18/11/17.
  */
 
-public class Comentario {
+public class Puntuacion {
     private String aliasObjetivo;
     private String AliasComentador;
     private Date fechaComentario;
     private String titulo;
     private String comentario;
+    private int puntuacion;
+
+    public int getPuntuacion() {
+        return puntuacion;
+    }
+
+    public void setPuntuacion(int puntuacion) {
+        this.puntuacion = puntuacion;
+    }
+
 
     public String getAliasObjetivo() {
         return aliasObjetivo;
@@ -52,6 +62,5 @@ public class Comentario {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-
 
 }

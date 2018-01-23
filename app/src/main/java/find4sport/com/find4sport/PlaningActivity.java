@@ -21,7 +21,6 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
     private Toolbar tbPlaning;
     private ViewPager vpPlaning;
     private PlaningPagerAdapter adapter;
-    private int selectedTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
