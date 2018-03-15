@@ -20,6 +20,7 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
 
     private Toolbar tbPlaning;
     private ViewPager vpPlaning;
+    private TabLayout tlPlaning;
     private PlaningPagerAdapter adapter;
 
     @Override
@@ -35,6 +36,8 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
         vpPlaning = (ViewPager)findViewById(R.id.vpPlaning);
         setUpViewPager();
 
+        tlPlaning = (TabLayout)findViewById(R.id.tlPlaning);
+        tlPlaning.setupWithViewPager(vpPlaning);
 
 
         vpPlaning.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
