@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -90,7 +92,12 @@ public class QuedadasFragment extends Fragment {
     }
 
     private void inicializarAdapter() {
-        adapter = new QuedadasAdapter(quedadas);
+        adapter = new QuedadasAdapter(quedadas, new QuedadasAdapter.RecyclerClickListener() {
+            @Override
+            public void onItemCLick(Quedada quedada) {
+                Toast.makeText(getContext(), quedada.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
         rvQuedadas.setAdapter(adapter);
     }
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="find4sport.com.find4sport.PlaningActivity">
-    
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,8 +29,8 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tlPlaning"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:tabMode="scrollable"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
             app:tabGravity="fill">
 
         </android.support.design.widget.TabLayout>
@@ -48,4 +48,17 @@
         app:layout_constraintTop_toBottomOf="@+id/tlPlaning">
 
     </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabCreateQuedada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
+
 </android.support.design.widget.CoordinatorLayout>

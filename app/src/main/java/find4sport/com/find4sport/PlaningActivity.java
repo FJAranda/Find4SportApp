@@ -1,6 +1,7 @@
 package find4sport.com.find4sport;
 
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -15,13 +16,15 @@ import java.util.ArrayList;
 import find4sport.com.find4sport.adapter.PlaningPagerAdapter;
 import find4sport.com.find4sport.ui.QuedadasFragment;
 import find4sport.com.find4sport.ui.TimelineFragment;
+import find4sport.com.find4sport.ui.ZonasDeportivasFragment;
 
-public class PlaningActivity extends AppCompatActivity implements QuedadasFragment.OnFragmentInteractionListener, TimelineFragment.OnFragmentInteractionListener {
+public class PlaningActivity extends AppCompatActivity implements QuedadasFragment.OnFragmentInteractionListener, TimelineFragment.OnFragmentInteractionListener, ZonasDeportivasFragment.OnFragmentInteractionListener {
 
     private Toolbar tbPlaning;
     private ViewPager vpPlaning;
     private TabLayout tlPlaning;
     private PlaningPagerAdapter adapter;
+    private FloatingActionButton fabCreateQuedada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,8 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
         vpPlaning = (ViewPager)findViewById(R.id.vpPlaning);
         setUpViewPager();
 
+        fabCreateQuedada = (FloatingActionButton)findViewById(R.id.fabCreateQuedada);
+
         tlPlaning = (TabLayout)findViewById(R.id.tlPlaning);
         tlPlaning.setupWithViewPager(vpPlaning);
 
@@ -48,6 +53,13 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
 
             @Override
             public void onPageSelected(int position) {
+                if (position != 0){
+                    fabCreateQuedada.hide();
+                }
+
+                if (position == 0){
+                    fabCreateQuedada.show();
+                }
                 vpPlaning.setCurrentItem(position);
             }
 
@@ -62,6 +74,8 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
         adapter = new PlaningPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new QuedadasFragment(), "Quedadas");
         adapter.addFragment(new TimelineFragment(), "Entorno");
+        adapter.addFragment(new ZonasDeportivasFragment(), "Pistas");
+
         vpPlaning.setAdapter(adapter);
     }
 

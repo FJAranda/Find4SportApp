@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,10 +19,17 @@ import find4sport.com.find4sport.R;
  */
 
 public class QuedadasAdapter extends RecyclerView.Adapter<QuedadasAdapter.ViewHolder> {
-    private ArrayList<Quedada> quedadas;
 
-    public QuedadasAdapter(ArrayList<Quedada> quedadas) {
+    public interface RecyclerClickListener {
+        void onItemCLick(Quedada quedada);
+    }
+
+    private ArrayList<Quedada> quedadas;
+    private RecyclerClickListener recyclerClickListener;
+
+    public QuedadasAdapter(ArrayList<Quedada> quedadas, RecyclerClickListener recyclerClickListener) {
         this.quedadas = quedadas;
+        this.recyclerClickListener = recyclerClickListener;
     }
 
     @Override
@@ -34,7 +42,7 @@ public class QuedadasAdapter extends RecyclerView.Adapter<QuedadasAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Quedada quedada = quedadas.get(position);
-        holder.bindQuedada(quedada);
+        holder.bindQuedada(quedada, recyclerClickListener);
     }
 
     @Override
@@ -54,11 +62,19 @@ public class QuedadasAdapter extends RecyclerView.Adapter<QuedadasAdapter.ViewHo
             tvFecha = itemView.findViewById(R.id.tvFechaItemQuedada);
         }
 
-        public void bindQuedada(Quedada quedada){
+        public void bindQuedada(final Quedada quedada, final RecyclerClickListener listener){
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             ivQuedada.setImageResource(R.drawable.logo);
             tvNombre.setText(quedada.getNombre());
             tvFecha.setText(simpleDateFormat.format(quedada.getFecha()));
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemCLick(quedada);
+                }
+            });
         }
     }
+
+
 }
