@@ -34,7 +34,7 @@ public class QuedadasAdapter extends RecyclerView.Adapter<QuedadasAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_quedada, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_quedada_card, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -54,12 +54,16 @@ public class QuedadasAdapter extends RecyclerView.Adapter<QuedadasAdapter.ViewHo
         private ImageView ivQuedada;
         private TextView tvNombre;
         private TextView tvFecha;
+        private TextView tvHora;
+        private TextView tvParticipantes;
 
         public ViewHolder(View itemView) {
             super(itemView);
             ivQuedada = itemView.findViewById(R.id.ivItemQuedada);
             tvNombre = itemView.findViewById(R.id.tvTituloItemQuedada);
             tvFecha = itemView.findViewById(R.id.tvFechaItemQuedada);
+            tvHora = itemView.findViewById(R.id.tvHoraItemQuedada);
+            tvParticipantes = itemView.findViewById(R.id.tvParticipantesItemQuedada);
         }
 
         public void bindQuedada(final Quedada quedada, final RecyclerClickListener listener){
@@ -67,6 +71,9 @@ public class QuedadasAdapter extends RecyclerView.Adapter<QuedadasAdapter.ViewHo
             ivQuedada.setImageResource(R.drawable.logo);
             tvNombre.setText(quedada.getNombre());
             tvFecha.setText(simpleDateFormat.format(quedada.getFecha()));
+            tvHora.setText(quedada.getHoraInicio());
+            // TODO: 21/3/18 Cambiar numero participantes por lugar
+            tvParticipantes.setText(String.valueOf(quedada.getNumeroParticipantes()));
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

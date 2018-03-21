@@ -85,7 +85,7 @@ public class QuedadasFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvQuedadas.setLayoutManager(linearLayoutManager);
 
-        inicializarDatos();
+        // TODO: 21/3/18 Implementar interactor para cargar los datos de repository 
         inicializarAdapter();
 
         return view;
@@ -101,17 +101,7 @@ public class QuedadasFragment extends Fragment {
         rvQuedadas.setAdapter(adapter);
     }
 
-    private void inicializarDatos() {
-        Calendar calendar = Calendar.getInstance();
-        Date fecha =calendar.getTime();
-        quedadas = new ArrayList<>();
-        quedadas.add(new Quedada("0", "0", fecha, "Quedada 1", "10:00", "11:00"));
-        quedadas.add(new Quedada("1", "0", fecha, "Quedada 2", "10:00", "11:00"));
-        quedadas.add(new Quedada("2", "0", fecha, "Quedada 3", "10:00", "11:00"));
-        quedadas.add(new Quedada("3", "0", fecha, "Quedada 4", "10:00", "11:00"));
-        quedadas.add(new Quedada("4", "0", fecha, "Quedada 5", "10:00", "11:00"));
-        quedadas.add(new Quedada("5", "0", fecha, "Quedada 6", "10:00", "11:00"));
-    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -151,4 +141,6 @@ public class QuedadasFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    // TODO: 21/3/18 salir de la quedada 
 }
