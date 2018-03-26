@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 import find4sport.com.find4sport.pojo.Quedada;
 
@@ -47,12 +48,10 @@ public class QuedadaRepository {
     }
 
     public ArrayList<Quedada> getQuedadas() {
-        // TODO: 21/3/18 Ordenar por fecha de edicion 
-        //Collections.sort(mQuedadas, new Quedada.);
         return mQuedadas;
     }
 
-    public ArrayList<Quedada> getQuedadasOrderByName() {
+    public ArrayList<Quedada> getQuedadasOrderBy() {
         Collections.sort(mQuedadas, Quedada.COMPARATOR_NAME);
         return mQuedadas;
     }
@@ -102,5 +101,11 @@ public class QuedadaRepository {
 
     public Quedada getQuedadaAtPosition(int position){
         return mQuedadas.get(position);
+    }
+
+    public List<Quedada> getQuedadasOrderByDate() {
+        // TODO: 26/3/18 Ordenar por fecha y devolver
+        Collections.sort(mQuedadas, Quedada.COMPARATOR_NAME);
+        return mQuedadas;
     }
 }

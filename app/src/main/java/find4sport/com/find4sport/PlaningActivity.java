@@ -3,20 +3,16 @@ package find4sport.com.find4sport;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import find4sport.com.find4sport.adapter.PlaningPagerAdapter;
-import find4sport.com.find4sport.ui.QuedadasFragment;
-import find4sport.com.find4sport.ui.TimelineFragment;
-import find4sport.com.find4sport.ui.ZonasDeportivasFragment;
+import find4sport.com.find4sport.ui.planing.QuedadasFragment;
+import find4sport.com.find4sport.ui.planing.TimelineFragment;
+import find4sport.com.find4sport.ui.planing.ZonasDeportivasFragment;
 
 public class PlaningActivity extends AppCompatActivity implements QuedadasFragment.OnFragmentInteractionListener, TimelineFragment.OnFragmentInteractionListener, ZonasDeportivasFragment.OnFragmentInteractionListener {
 

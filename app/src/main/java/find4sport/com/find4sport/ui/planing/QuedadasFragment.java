@@ -1,4 +1,4 @@
-package find4sport.com.find4sport.ui;
+package find4sport.com.find4sport.ui.planing;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,16 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
 import find4sport.com.find4sport.pojo.Quedada;
 import find4sport.com.find4sport.R;
 import find4sport.com.find4sport.adapter.QuedadasAdapter;
+import find4sport.com.find4sport.ui.planing.contracts.ListQuedadasContract;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,20 +27,17 @@ import find4sport.com.find4sport.adapter.QuedadasAdapter;
  * Use the {@link QuedadasFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QuedadasFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class QuedadasFragment extends Fragment implements ListQuedadasContract.View{
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public static final String TAG = "listquedadas";
 
-    private OnFragmentInteractionListener mListener;
+
     private RecyclerView rvQuedadas;
     private ArrayList<Quedada> quedadas;
+
     private QuedadasAdapter adapter;
+    private ListQuedadasContract.Presenter presenter;
+    private OnFragmentInteractionListener mListener;
 
     public QuedadasFragment() {
         // Required empty public constructor
@@ -49,29 +45,21 @@ public class QuedadasFragment extends Fragment {
 
     /**
      * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * this fragment.
      * @return A new instance of fragment QuedadasFragment.
      */
-    // TODO: Rename and change types and number of parameters
-    public static QuedadasFragment newInstance(String param1, String param2) {
+    public static QuedadasFragment newInstance() {
         QuedadasFragment fragment = new QuedadasFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        if (args != null){
+            fragment.setArguments(args);
+        }
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -85,7 +73,8 @@ public class QuedadasFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvQuedadas.setLayoutManager(linearLayoutManager);
 
-        // TODO: 21/3/18 Implementar interactor para cargar los datos de repository 
+        // TODO: 21/3/18 Implementar interactor para cargar los datos de repository
+
         inicializarAdapter();
 
         return view;
@@ -125,6 +114,11 @@ public class QuedadasFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void showQuedadas(List<Quedada> quedadas) {
+
     }
 
     /**
