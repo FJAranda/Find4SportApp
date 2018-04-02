@@ -1,34 +1,24 @@
-package find4sport.com.find4sport.ui;
+package find4sport.com.find4sport.ui.planing;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
-import find4sport.com.find4sport.pojo.Quedada;
 import find4sport.com.find4sport.R;
-import find4sport.com.find4sport.adapter.QuedadasAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link QuedadasFragment.OnFragmentInteractionListener} interface
+ * {@link TimelineFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link QuedadasFragment#newInstance} factory method to
+ * Use the {@link TimelineFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QuedadasFragment extends Fragment {
+public class TimelineFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,11 +29,8 @@ public class QuedadasFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private RecyclerView rvQuedadas;
-    private ArrayList<Quedada> quedadas;
-    private QuedadasAdapter adapter;
 
-    public QuedadasFragment() {
+    public TimelineFragment() {
         // Required empty public constructor
     }
 
@@ -53,11 +40,11 @@ public class QuedadasFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment QuedadasFragment.
+     * @return A new instance of fragment TimelineFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static QuedadasFragment newInstance(String param1, String param2) {
-        QuedadasFragment fragment = new QuedadasFragment();
+    public static TimelineFragment newInstance(String param1, String param2) {
+        TimelineFragment fragment = new TimelineFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -78,39 +65,7 @@ public class QuedadasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_quedadas, container, false);
-
-        rvQuedadas = (RecyclerView)view.findViewById(R.id.rvQuedadas);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        rvQuedadas.setLayoutManager(linearLayoutManager);
-
-        inicializarDatos();
-        inicializarAdapter();
-
-        return view;
-    }
-
-    private void inicializarAdapter() {
-        adapter = new QuedadasAdapter(quedadas, new QuedadasAdapter.RecyclerClickListener() {
-            @Override
-            public void onItemCLick(Quedada quedada) {
-                Toast.makeText(getContext(), quedada.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-        rvQuedadas.setAdapter(adapter);
-    }
-
-    private void inicializarDatos() {
-        Calendar calendar = Calendar.getInstance();
-        Date fecha =calendar.getTime();
-        quedadas = new ArrayList<>();
-        quedadas.add(new Quedada("0", "0", fecha, "Quedada 1", "10:00", "11:00"));
-        quedadas.add(new Quedada("1", "0", fecha, "Quedada 2", "10:00", "11:00"));
-        quedadas.add(new Quedada("2", "0", fecha, "Quedada 3", "10:00", "11:00"));
-        quedadas.add(new Quedada("3", "0", fecha, "Quedada 4", "10:00", "11:00"));
-        quedadas.add(new Quedada("4", "0", fecha, "Quedada 5", "10:00", "11:00"));
-        quedadas.add(new Quedada("5", "0", fecha, "Quedada 6", "10:00", "11:00"));
+        return inflater.inflate(R.layout.fragment_timeline, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

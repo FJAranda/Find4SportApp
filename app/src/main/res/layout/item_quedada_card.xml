@@ -35,5 +35,23 @@
                 android:layout_marginTop="16dp"
                 android:layout_toRightOf="@+id/ivItemQuedada"
                 android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvHoraItemQuedada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tvFechaItemQuedada"
+                android:layout_toRightOf="@+id/tvFechaItemQuedada"
+                android:layout_marginLeft="16dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvParticipantesItemQuedada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_alignBottom="@+id/tvTituloItemQuedada"
+                android:layout_toRightOf="@+id/tvTituloItemQuedada"
+                android:text="TextView" />
         </RelativeLayout>
 </android.support.v7.widget.CardView>

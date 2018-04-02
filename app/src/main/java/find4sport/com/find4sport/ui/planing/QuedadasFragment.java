@@ -1,72 +1,96 @@
-package find4sport.com.find4sport.ui;
+package find4sport.com.find4sport.ui.planing;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import find4sport.com.find4sport.pojo.Quedada;
 import find4sport.com.find4sport.R;
+import find4sport.com.find4sport.adapter.QuedadasAdapter;
+import find4sport.com.find4sport.ui.planing.contracts.ListQuedadasContract;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ZonasDeportivasFragment.OnFragmentInteractionListener} interface
+ * {@link QuedadasFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ZonasDeportivasFragment#newInstance} factory method to
+ * Use the {@link QuedadasFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ZonasDeportivasFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class QuedadasFragment extends Fragment implements ListQuedadasContract.View{
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public static final String TAG = "listquedadas";
 
+
+    private RecyclerView rvQuedadas;
+    private ArrayList<Quedada> quedadas;
+
+    private QuedadasAdapter adapter;
+    private ListQuedadasContract.Presenter presenter;
     private OnFragmentInteractionListener mListener;
 
-    public ZonasDeportivasFragment() {
+    public QuedadasFragment() {
         // Required empty public constructor
     }
 
     /**
      * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ZonasDeportivasFragment.
+     * this fragment.
+     * @return A new instance of fragment QuedadasFragment.
      */
-    // TODO: Rename and change types and number of parameters
-    public static ZonasDeportivasFragment newInstance(String param1, String param2) {
-        ZonasDeportivasFragment fragment = new ZonasDeportivasFragment();
+    public static QuedadasFragment newInstance() {
+        QuedadasFragment fragment = new QuedadasFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        if (args != null){
+            fragment.setArguments(args);
+        }
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_zonas_deportivas, container, false);
+        View view = inflater.inflate(R.layout.fragment_quedadas, container, false);
+
+        rvQuedadas = (RecyclerView)view.findViewById(R.id.rvQuedadas);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rvQuedadas.setLayoutManager(linearLayoutManager);
+
+        // TODO: 21/3/18 Implementar interactor para cargar los datos de repository
+
+        inicializarAdapter();
+
+        return view;
     }
+
+    private void inicializarAdapter() {
+        adapter = new QuedadasAdapter(quedadas, new QuedadasAdapter.RecyclerClickListener() {
+            @Override
+            public void onItemCLick(Quedada quedada) {
+                Toast.makeText(getContext(), quedada.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+        rvQuedadas.setAdapter(adapter);
+    }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -92,6 +116,11 @@ public class ZonasDeportivasFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void showQuedadas(List<Quedada> quedadas) {
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -106,4 +135,6 @@ public class ZonasDeportivasFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    // TODO: 21/3/18 salir de la quedada 
 }

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="find4sport.com.find4sport.ui.QuedadasFragment">
+    tools:context="find4sport.com.find4sport.ui.planing.QuedadasFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

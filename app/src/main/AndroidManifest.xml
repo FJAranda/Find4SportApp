@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".PlaningActivity"></activity>
+        <activity android:name=".PlaningActivity" />
+        <activity android:name=".DetailQuedadaActivity"></activity>
     </application>
 
 </manifest>
