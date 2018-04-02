@@ -17,6 +17,9 @@ public interface ListQuedadasContract {
     interface Presenter{
         void loadQuedadas();
         void loadQuedadadasByDate();
+
+        void getQuedada(String idQuedada);
+        void clearQuedadas();
     }
 
     interface Interactor{

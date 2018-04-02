@@ -17,6 +17,7 @@ import java.util.List;
 import find4sport.com.find4sport.pojo.Quedada;
 import find4sport.com.find4sport.R;
 import find4sport.com.find4sport.adapter.QuedadasAdapter;
+import find4sport.com.find4sport.ui.base.RecyclerViewListener;
 import find4sport.com.find4sport.ui.planing.contracts.ListQuedadasContract;
 
 /**
@@ -81,13 +82,14 @@ public class QuedadasFragment extends Fragment implements ListQuedadasContract.V
     }
 
     private void inicializarAdapter() {
-        adapter = new QuedadasAdapter(quedadas, new QuedadasAdapter.RecyclerClickListener() {
+        adapter = new QuedadasAdapter(new ArrayList<Quedada>());
+        rvQuedadas.setAdapter(adapter);
+        adapter.setOnItemClickListener(new RecyclerViewListener.OnItemClickListener() {
             @Override
-            public void onItemCLick(Quedada quedada) {
-                Toast.makeText(getContext(), quedada.toString(), Toast.LENGTH_LONG).show();
+            public void OnItemClick(View view, int position) {
+                presenter.getQuedada(adapter.getItem(position).getIdQuedada());
             }
         });
-        rvQuedadas.setAdapter(adapter);
     }
 
 
@@ -118,8 +120,11 @@ public class QuedadasFragment extends Fragment implements ListQuedadasContract.V
 
     @Override
     public void showQuedadas(List<Quedada> quedadas) {
-
+        adapter.loadData(quedadas);
     }
+
+
+
 
     /**
      * This interface must be implemented by activities that contain this

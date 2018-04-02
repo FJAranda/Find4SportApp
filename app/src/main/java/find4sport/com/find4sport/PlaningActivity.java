@@ -88,6 +88,7 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
         vpPlaning.setCurrentItem(savedInstanceState.getInt("SelectedTab"));
     }
 
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 

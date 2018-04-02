@@ -31,6 +31,15 @@ public class ListQuedadasPresenter implements ListQuedadasContract.Presenter, Li
     }
 
     @Override
+    public void getQuedada(String idQuedada) {
+
+    }
+
+    @Override
+    public void clearQuedadas() {
+    }
+
+    @Override
     public void onSuccess(List<Quedada> quedadas) {
         view.showQuedadas(quedadas);
     }
