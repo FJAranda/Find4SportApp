@@ -59,7 +59,7 @@ public class QuedadasAdapter extends BaseRecyclerViewAdapter<QuedadasAdapter.Que
         // TODO: 2/04/18 Dar formato a la fecha.
         vh.tvFecha.setText(quedada.getFecha().toString());
         vh.tvHora.setText(quedada.getHoraInicio());
-        vh.tvParticipantes.setText(quedada.getNumeroParticipantes());
+        vh.tvParticipantes.setText("5");//quedada.getNumeroParticipantes());
         // TODO: 2/04/18 Hacer Imagenes de deportes y metodo que las asigne.
         vh.ivQuedada.setImageResource(R.mipmap.ic_pingpong);
     }

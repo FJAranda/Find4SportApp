@@ -19,6 +19,7 @@ import find4sport.com.find4sport.R;
 import find4sport.com.find4sport.adapter.QuedadasAdapter;
 import find4sport.com.find4sport.ui.base.RecyclerViewListener;
 import find4sport.com.find4sport.ui.planing.contracts.ListQuedadasContract;
+import find4sport.com.find4sport.ui.planing.presenters.ListQuedadasPresenter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,9 +75,11 @@ public class QuedadasFragment extends Fragment implements ListQuedadasContract.V
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvQuedadas.setLayoutManager(linearLayoutManager);
 
-        // TODO: 21/3/18 Implementar interactor para cargar los datos de repository
-
         inicializarAdapter();
+
+        // TODO: 21/3/18 Implementar interactor para cargar los datos de repository
+        presenter = new ListQuedadasPresenter(this);
+        presenter.loadQuedadas();
 
         return view;
     }
