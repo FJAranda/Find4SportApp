@@ -1,7 +1,7 @@
 package find4sport.com.find4sport.ui.planing.interactors;
 
-import find4sport.com.find4sport.pojo.Quedada;
-import find4sport.com.find4sport.repository.QuedadaRepository;
+import find4sport.com.find4sport.data.model.Quedada;
+import find4sport.com.find4sport.data.repository.QuedadaRepository;
 import find4sport.com.find4sport.ui.planing.contracts.ListQuedadasContract;
 
 /**

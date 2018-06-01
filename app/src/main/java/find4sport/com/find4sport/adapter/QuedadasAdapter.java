@@ -11,7 +11,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
-import find4sport.com.find4sport.pojo.Quedada;
+import find4sport.com.find4sport.data.model.Quedada;
 import find4sport.com.find4sport.R;
 import find4sport.com.find4sport.ui.base.BaseRecyclerViewAdapter;
 

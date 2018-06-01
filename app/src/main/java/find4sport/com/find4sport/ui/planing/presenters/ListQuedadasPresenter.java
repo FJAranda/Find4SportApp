@@ -2,7 +2,7 @@ package find4sport.com.find4sport.ui.planing.presenters;
 
 import java.util.List;
 
-import find4sport.com.find4sport.pojo.Quedada;
+import find4sport.com.find4sport.data.model.Quedada;
 import find4sport.com.find4sport.ui.planing.contracts.ListQuedadasContract;
 import find4sport.com.find4sport.ui.planing.interactors.ListQuedadasInteractor;
 

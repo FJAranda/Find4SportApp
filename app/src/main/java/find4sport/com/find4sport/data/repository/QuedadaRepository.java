@@ -1,6 +1,5 @@
-package find4sport.com.find4sport.repository;
+package find4sport.com.find4sport.data.repository;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -8,7 +7,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import find4sport.com.find4sport.pojo.Quedada;
+import find4sport.com.find4sport.data.model.Quedada;
 
 /**
  * Created by Javi on 21/3/18.

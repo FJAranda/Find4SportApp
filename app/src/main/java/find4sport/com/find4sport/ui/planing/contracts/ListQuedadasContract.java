@@ -1,9 +1,8 @@
 package find4sport.com.find4sport.ui.planing.contracts;
 
 import java.util.List;
-import java.util.Queue;
 
-import find4sport.com.find4sport.pojo.Quedada;
+import find4sport.com.find4sport.data.model.Quedada;
 
 /**
  * Created by Javi on 26/3/18.
