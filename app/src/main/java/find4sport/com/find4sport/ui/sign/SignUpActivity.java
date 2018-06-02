@@ -1,4 +1,4 @@
-package find4sport.com.find4sport;
+package find4sport.com.find4sport.ui.sign;
 
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ScrollView;
 import android.widget.Switch;
+
+import find4sport.com.find4sport.R;
 
 public class SignUpActivity extends AppCompatActivity {
 

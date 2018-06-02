@@ -1,4 +1,4 @@
-package find4sport.com.find4sport.data;
+package find4sport.com.find4sport.data.db;
 
 import android.provider.BaseColumns;
 

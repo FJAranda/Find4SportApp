@@ -1,7 +1,9 @@
-package find4sport.com.find4sport;
+package find4sport.com.find4sport.ui.deportista;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import find4sport.com.find4sport.R;
 
 public class DeportistaDetailModifyActivity extends AppCompatActivity {
 

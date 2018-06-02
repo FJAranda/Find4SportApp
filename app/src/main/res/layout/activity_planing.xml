@@ -1,79 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dlPlaningActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="find4sport.com.find4sport.PlaningActivity">
+    tools:context="find4sport.com.find4sport.ui.planing.PlaningActivity">
+
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        >
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tbPlaning"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_scrollFlags="scroll|enterAlways"
-        />
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tlPlaning"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabMode="fixed"
-            app:tabGravity="fill">
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        </android.support.design.widget.TabLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tbPlaning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|enterAlways" />
 
-    </android.support.design.widget.AppBarLayout>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tlPlaning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabGravity="fill"
+                app:tabMode="fixed">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vpPlaning"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tlPlaning">
+            </android.support.design.widget.TabLayout>
 
-    </android.support.v4.view.ViewPager>
+        </android.support.design.widget.AppBarLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabCreateQuedada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:fabSize="normal"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpPlaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlPlaning">
+
+        </android.support.v4.view.ViewPager>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabCreateQuedada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:fabSize="normal"
+            app:srcCompat="@android:drawable/ic_menu_add" />
 
 
-</android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navview"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         android:layout_gravity="start"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/header_navview"
         app:menu="@menu/menu_navview" />
 </android.support.v4.widget.DrawerLayout>

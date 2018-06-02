@@ -1,4 +1,4 @@
-package find4sport.com.find4sport;
+package find4sport.com.find4sport.ui.login;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import find4sport.com.find4sport.R;
+import find4sport.com.find4sport.ui.sign.SignUpActivity;
+import find4sport.com.find4sport.ui.planing.PlaningActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

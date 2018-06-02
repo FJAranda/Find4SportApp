@@ -1,22 +1,28 @@
-package find4sport.com.find4sport;
+package find4sport.com.find4sport.ui.planing;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 
+import find4sport.com.find4sport.ui.deportista.DeportistaDetailModifyActivity;
+import find4sport.com.find4sport.R;
 import find4sport.com.find4sport.adapter.PlaningPagerAdapter;
-import find4sport.com.find4sport.ui.planing.QuedadasFragment;
-import find4sport.com.find4sport.ui.planing.TimelineFragment;
-import find4sport.com.find4sport.ui.planing.ZonasDeportivasFragment;
 
 public class PlaningActivity extends AppCompatActivity implements QuedadasFragment.OnFragmentInteractionListener, TimelineFragment.OnFragmentInteractionListener, ZonasDeportivasFragment.OnFragmentInteractionListener {
 
     private Toolbar tbPlaning;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
     private ViewPager vpPlaning;
     private TabLayout tlPlaning;
     private PlaningPagerAdapter adapter;
@@ -31,6 +37,28 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
         if (tbPlaning != null) {
             setSupportActionBar(tbPlaning);
         }
+
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_menu_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        drawerLayout = (DrawerLayout)findViewById(R.id.dlPlaningActivity);
+        navigationView = (NavigationView)findViewById(R.id.navview);
+
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        switch (menuItem.getItemId()){
+                            case R.id.menu_seccion_perfil:
+                                Intent intent = new Intent(PlaningActivity.this, DeportistaDetailModifyActivity.class);
+                                startActivity(intent);
+                                break;
+                        }
+                        drawerLayout.closeDrawers();
+
+                        return true;
+                    }
+                });
 
         vpPlaning = (ViewPager)findViewById(R.id.vpPlaning);
         setUpViewPager();
@@ -64,6 +92,17 @@ public class PlaningActivity extends AppCompatActivity implements QuedadasFragme
 
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void setUpViewPager(){

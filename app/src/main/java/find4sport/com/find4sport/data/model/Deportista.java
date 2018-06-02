@@ -1,5 +1,6 @@
 package find4sport.com.find4sport.data.model;
 
+import android.graphics.Bitmap;
 import android.media.Image;
 
 import java.util.Date;
@@ -15,7 +16,7 @@ public class Deportista {
     private String apellidos;
     private Date fechaNacimiento;
     private String password;
-    private Image imagen;
+    private Bitmap imagen;
     private String ciudad;
     private String mail;
     private String telefono;
@@ -69,11 +70,11 @@ public class Deportista {
         this.password = password;
     }
 
-    public Image getImagen() {
+    public Bitmap getImagen() {
         return imagen;
     }
 
-    public void setImagen(Image imagen) {
+    public void setImagen(Bitmap imagen) {
         this.imagen = imagen;
     }
 

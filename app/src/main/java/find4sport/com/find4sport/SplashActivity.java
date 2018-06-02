@@ -7,6 +7,8 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import find4sport.com.find4sport.ui.login.LoginActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     private static final long DELAY = 2000;

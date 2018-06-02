@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="find4sport.com.find4sport.DetailQuedadaActivity">
+    tools:context="find4sport.com.find4sport.ui.quedada.DetailQuedadaActivity">
 
 </android.support.constraint.ConstraintLayout>
