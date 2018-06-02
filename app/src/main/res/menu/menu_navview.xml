@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_seccion_perfil"
+            android:icon="@drawable/baseline_account_circle_24"
+            android:title="Ver Perfil" />
+        <item
+            android:id="@+id/menu_seccion_2"
+            android:icon="@android:drawable/ic_menu_close_clear_cancel"
+            android:title="Cerrar Sesion"/>
+    </group>
+    <item
+        android:id="@+id/navigation_subheader"
+        android:title="Otras Opciones">
+        <menu>
+            <item
+                android:id="@+id/menu_opcion_1"
+                android:icon="@android:drawable/ic_delete"
+                android:title="Nombre Opcion"/>
+        </menu>
+    </item>
+</menu>

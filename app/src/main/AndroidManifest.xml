@@ -19,7 +19,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".PlaningActivity" />
-        <activity android:name=".DetailQuedadaActivity"></activity>
+        <activity android:name=".DetailQuedadaActivity" />
+        <activity android:name=".DeportistaDetailModifyActivity"></activity>
     </application>
 
 </manifest>
